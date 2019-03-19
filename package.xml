@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>mapping_with_lidar</name>
+  <version>0.1.0</version>
+  <description>Turtlebot with lidar</description>
+
+  <maintainer email="ivanpauno@ekumenlabs.com">Ivan Paunovic</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>rplidar_ros</depend>
+  <depend>turtlebot_bringup</depend>
+  <depend>gmapping</depend>
+  <depend>turtlebot_navigation</depend>
+
+</package>
