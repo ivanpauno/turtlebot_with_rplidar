@@ -1,12 +1,15 @@
 <launch>
+    <arg name="ttyUSB_kobuki"  default="/dev/ttyUSB1" />
+    <arg name="ttyUSB_rplidar"  default="/dev/ttyUSB0" />
+
     <!-- Launch minimal.launch -->
     <include file="$(find turtlebot_bringup)/launch/minimal.launch">
-            <arg name="serialport" value="/dev/ttyUSB1" />
+            <arg name="serialport" value="$(arg ttyUSB_kobuki)" />
     </include>
     
     <!-- Launch rplidar -->
     <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
-        <param name="serial_port"         type="string" value="/dev/ttyUSB0"/>
+        <param name="serial_port"         type="string" value="$(arg ttyUSB_rplidar)"/>
         <param name="serial_baudrate"     type="int"    value="115200"/><!--A1/A2 -->
         <!--param name="serial_baudrate"     type="int"    value="256000"--><!--A3 -->
         <param name="frame_id"            type="string" value="base_laser_link"/>
@@ -27,7 +30,7 @@
     </include>
 
     <!-- SLAM with gmapping-->
-    <arg name="scan_topic"  default="scan" />
+    <arg name="scan_topic"  default="scan"/>
     <arg name="base_frame"  default="base_footprint"/>
     <arg name="odom_frame"  default="odom"/>
 
