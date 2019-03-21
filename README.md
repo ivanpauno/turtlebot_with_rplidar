@@ -24,7 +24,7 @@ export ROS_IP=__THIS_COMPUTER_IP__
 ## Turtlebot computer
 
 ```bash
-roslaunch mapping_with_lidar rplidar_turtlebot.launch
+roslaunch mapping_with_lidar rplidar_turtlebot.launch ttyUSB_kobuki:=/dev/__TTY_USB_KOBUKI__ ttyUSB_rplidar:=/dev/__TTY_USB_RPLIDAR__
 ```
 
 ## User computer
