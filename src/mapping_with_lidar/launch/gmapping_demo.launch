@@ -2,31 +2,9 @@
     <arg name="ttyUSB_kobuki"  default="/dev/ttyUSB1" />
     <arg name="ttyUSB_rplidar"  default="/dev/ttyUSB0" />
 
-    <!-- Launch minimal.launch -->
-    <include file="$(find turtlebot_bringup)/launch/minimal.launch">
-            <arg name="serialport" value="$(arg ttyUSB_kobuki)" />
-    </include>
-    
-    <!-- Launch rplidar -->
-    <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
-        <param name="serial_port"         type="string" value="$(arg ttyUSB_rplidar)"/>
-        <param name="serial_baudrate"     type="int"    value="115200"/><!--A1/A2 -->
-        <!--param name="serial_baudrate"     type="int"    value="256000"--><!--A3 -->
-        <param name="frame_id"            type="string" value="base_laser_link"/>
-        <param name="inverted"            type="bool"   value="false"/>
-        <param name="angle_compensate"    type="bool"   value="true"/>
-    </node>
-
-    <!-- Create environment variable for rplidar with "rplidar" default value -->
-    <arg name="base" default="$(optenv TURTLEBOT_BASE kobuki)"/>
-    <arg name="stacks" default="$(optenv TURTLEBOT_STACKS hexagons)"/>
-    <arg name="rplidar_sensor" default="$(optenv TURTLEBOT_LASER_SENSOR rplidar)"/>
-    
-    <!-- Set environment variable for rplidar -->
-    <include file="$(find mapping_with_lidar)/launch/includes/robot.launch.xml">
-        <arg name="base" value="$(arg base)" />
-        <arg name="stacks" value="$(arg stacks)" />
-        <arg name="rplidar_sensor" value="$(arg rplidar_sensor)"/>
+    <include file="$(find mapping_with_lidar)/launch/bringup_with_lidar.launch">
+      <arg name="ttyUSB_kobuki" value="$(arg ttyUSB_kobuki)" />
+      <arg name="ttyUSB_rplidar" value="$(arg ttyUSB_rplidar)" />
     </include>
 
     <!-- SLAM with gmapping-->
