@@ -1,5 +1,5 @@
 #! /bin/bash
-SCRIPT_PATH=$(pwd)
+SCRIPT_PATH=$(cd ../.. && pwd)
 
 xhost +
 docker run --privileged --rm -it \

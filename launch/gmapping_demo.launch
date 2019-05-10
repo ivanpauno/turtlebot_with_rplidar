@@ -2,7 +2,7 @@
     <arg name="ttyUSB_kobuki"  default="/dev/ttyUSB1" />
     <arg name="ttyUSB_rplidar"  default="/dev/ttyUSB0" />
 
-    <include file="$(find mapping_with_lidar)/launch/bringup_with_lidar.launch">
+    <include file="$(find turtlebot_with_lidar)/launch/bringup_with_lidar.launch">
       <arg name="ttyUSB_kobuki" value="$(arg ttyUSB_kobuki)" />
       <arg name="ttyUSB_rplidar" value="$(arg ttyUSB_rplidar)" />
     </include>

@@ -5,7 +5,7 @@
     
     <xacro:macro name="sensor_rplidar" params="parent">
     <joint name="laser" type="fixed">
-        <origin xyz="0.180 0.00 0.040" rpy="0 0 0" />
+        <origin xyz="0.180 0.00 0.040" rpy="3.1416 0 0" />
         <parent link="${parent}" />
         <child link="base_laser_link" />
     </joint>
@@ -14,7 +14,7 @@
         <visual>
             <origin xyz="-0.0425 0.035 -0.040" rpy="1.570796327 0 0"/>
             <geometry>
-                <mesh filename="package://mapping_with_lidar/meshes/rplidar_main.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://turtlebot_with_lidar/meshes/rplidar_main.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="blue">
                 <color rgba="0 0 .8 1"/>

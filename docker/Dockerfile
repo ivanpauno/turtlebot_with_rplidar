@@ -56,10 +56,5 @@ RUN apt-get install -y ros-kinetic-turtlebot-teleop \
 
 USER ${user_name}
 
-# Clone rp_lidar src
-RUN mkdir turtlebot_ws
-# WORKDIR /home/${user_name}/turtlebot_ws/src
-# RUN git clone https://github.com/Slamtec/rplidar_ros
-
 WORKDIR /home/${user_name}
 CMD ["bash"]

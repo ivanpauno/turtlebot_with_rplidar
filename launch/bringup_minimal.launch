@@ -1,6 +1,6 @@
 <launch>
   <arg name="serialport"        default="$(env TURTLEBOT_SERIAL_PORT)"/>
-  <include file="$(find mapping_with_lidar)/launch/includes/robot.launch.xml"/>
+  <include file="$(find turtlebot_with_lidar)/launch/includes/robot.launch.xml"/>
   <include file="$(find turtlebot_bringup)/launch/includes/mobile_base.launch.xml">
     <arg name="base" value="kobuki" />
     <arg name="serialport" value="$(arg serialport)" />
