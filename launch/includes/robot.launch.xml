@@ -1,9 +1,14 @@
 <launch>
-    <arg name="base"/>
-    <arg name="stacks"/>
-    <arg name="rplidar_sensor"/>
-    
-    <arg name="urdf_file" default="$(find xacro)/xacro --inorder '$(find mapping_with_lidar)/robots/$(arg base)_$(arg stacks)_$(arg rplidar_sensor).urdf.xacro'" />
-    
+    <arg name="urdf_file" default="$(find xacro)/xacro --inorder '$(find turtlebot_with_lidar)/robots/kobuki_hexagons_rplidar.urdf.xacro'" />
     <param name="robot_description" command="$(arg urdf_file)" />
+
+    <param name="robot/name" value="$(optenv ROBOT turtlebot)"/>
+    <param name="robot/type" value="turtlebot"/>
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+      <param name="publish_frequency" type="double" value="5.0" />
+    </node>
+    <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator" >
+      <rosparam command="load" file="$(find turtlebot_bringup)/param/kobuki/diagnostics.yaml" />
+    </node>
 </launch>
