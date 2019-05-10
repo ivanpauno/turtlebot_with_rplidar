@@ -44,11 +44,13 @@ Start mapping:
 roslaunch turtlebot_with_lidar gmapping_demo.launch ttyUSB_kobuki:=/dev/__TTY_USB_KOBUKI__ ttyUSB_rplidar:=/dev/__TTY_USB_RPLIDAR__
 ```
 
-For saving the map, in another terminal. This step can also be done in the remote computer.
+For saving the map, in another terminal do:
 
 ```bash
 rosrun map_server map_saver -f MAP_NAME
 ```
+
+The map can also be saved in the remote computer.
 
 ### Navigating in a known map
 
